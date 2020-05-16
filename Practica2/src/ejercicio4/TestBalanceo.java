@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 
 public class TestBalanceo {
-	static PilaGenerica pila = new PilaGenerica();  
+	static PilaGenerica<Character> pila = new PilaGenerica<Character>();  
 
   public static void main (String [] pps) {
-      Scanner teclado = new Scanner(System.in);
-	  System.out.println("Ingrese el texto");
-      String texto = teclado.nextLine();
-      balanceo(texto);
+      try (Scanner teclado = new Scanner(System.in)) {
+		System.out.println("Ingrese el texto");
+		  String texto = teclado.nextLine();
+		  balanceo(texto);
+	}
       
       }
 

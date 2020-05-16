@@ -4,6 +4,7 @@ import tp02.ejercicio2.ListaGenerica;
 import tp04.ejercicio1.ArbolGeneral;
 
 public class Test {
+	
 	public static void main(String[] args) {
 		ArbolGeneral<AreaEmpresa> a = new ArbolGeneral<AreaEmpresa>(new AreaEmpresa('A',4));
 		ArbolGeneral<AreaEmpresa> b = new ArbolGeneral<AreaEmpresa>(new AreaEmpresa('B',7));
@@ -35,7 +36,8 @@ public class Test {
 		hijos.agregarFinal(l);
 		ArbolGeneral<AreaEmpresa> arbol =  new ArbolGeneral<AreaEmpresa>(new AreaEmpresa('M',20), hijos);
 		
-		System.out.print(arbol.preOrden().toString());	
+		System.out.println(arbol.recorridoPorNiveles().toString());
+		
 	}
 	
 	

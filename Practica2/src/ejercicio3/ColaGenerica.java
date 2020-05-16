@@ -1,59 +1,30 @@
 package ejercicio3;
+import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
-import tp02.ejercicio2.NodoGenerico;
 
 public class ColaGenerica<T> extends ListaGenerica<T> {
-	private NodoGenerico<T> inicio;
-	private NodoGenerico<T> actual;
-	private NodoGenerico<T> fin;
-	private int tamanio;
-	
-	public ColaGenerica() {
-		this.inicio = null; 
-		this.actual = null; 
-		this.fin = null; 
-		this.tamanio = 0; 
-		
-	}
-	public void encolar(T elem) {
-		NodoGenerico<T> aux = new NodoGenerico<T>();
-		aux.setDato(elem);
-		if (this.inicio == null) {
-			this.inicio = aux;
-			this.fin = aux;
-		} else {
-			fin.setSiguiente(aux);
-			fin = aux;
-		}
-		tamanio++;
-	}
-	
-	public T desencolar() {
-		T aux = inicio.getDato();
-		if (inicio != null) {
-		    inicio = inicio.getSiguiente();
-		tamanio--;
-	    }
-		return aux; 
-	}
+	private ListaEnlazadaGenerica <T> datos = new ListaEnlazadaGenerica <T>();
+    
+    public boolean esVacia(){
+        return this.datos.esVacia();        
+    }
+    
+    public void encolar(T elemento){
+            this.datos.agregarFinal(elemento);
+    }
+    public T desencolar(){
+            T elemento =  this.datos.elemento(1);
+            this.datos.eliminarEn(1);
+            return elemento;
+    }
+    public T tope(){
+            return this.datos.elemento(1);
+    }
+    
 
-	public T tope(){
-		if(inicio == null) {
-			return null;
-		}
-		else
-			return inicio.getDato(); 
-		
-	}
-	
-	public boolean EsVacio() {
-		return (inicio == null);
-	}
-
-	
 	@Override
 	public void comenzar() {
-		actual = inicio;
+		// TODO Auto-generated method stub
 		
 	}
 	@Override
@@ -94,7 +65,7 @@ public class ColaGenerica<T> extends ListaGenerica<T> {
 	@Override
 	public boolean eliminarEn(int pos) {
 		// TODO Auto-generated method stub
-		return true;
+		return false;
 	}
 	@Override
 	public boolean incluye(T elem) {
@@ -102,13 +73,9 @@ public class ColaGenerica<T> extends ListaGenerica<T> {
 		return false;
 	}
 	@Override
-	public boolean esVacia() {
-		return inicio == null;
-	}
-	@Override
 	public int tamanio() {
 		// TODO Auto-generated method stub
-		return tamanio;
+		return 0;
 	}
 	@Override
 	public boolean reemplazarEn(T elem, int pos) {
@@ -120,11 +87,13 @@ public class ColaGenerica<T> extends ListaGenerica<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
 	public boolean agregar(T[] vector) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 	
 
 }

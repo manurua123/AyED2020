@@ -86,7 +86,11 @@ public class ColaGenerica <T> extends ListaGenerica<T> {
 		return null;
 	}
 
-	
+	@Override
+	public boolean agregar(T[] vector) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 

@@ -1,9 +1,7 @@
 package tp04.ejercicio1;
-
 import tp02.ejercicio2.ColaGenerica;
 import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
-
 
 public class ArbolGeneral<T> {
 
@@ -252,5 +250,11 @@ public class ArbolGeneral<T> {
 			}
 			return listo;
 		}					
-		}
+	}
+	
+	
+	
+	
+	
+	
 }

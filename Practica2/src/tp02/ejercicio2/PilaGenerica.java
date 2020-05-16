@@ -1,7 +1,8 @@
 package tp02.ejercicio2;
+import tp02.ejercicio2.ListaGenerica;
 
-public class PilaGenerica<T> extends ListaGenerica<T>  {
-	private ListaEnlazadaGenerica <T> datos = new ListaEnlazadaGenerica <T>();
+public class PilaGenerica <T> extends ListaGenerica<T> {
+private ListaEnlazadaGenerica <T> datos = new ListaEnlazadaGenerica <T>();
 	
 	
 	public PilaGenerica() {
@@ -104,6 +105,11 @@ public class PilaGenerica<T> extends ListaGenerica<T>  {
 	public ListaGenerica<T> clonar() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public boolean agregar(T[] vector) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -1,65 +1,84 @@
 package ejercicio3;
+import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
-import tp02.ejercicio2.NodoGenerico;
 
-public class PilaGenerica<T> extends ListaGenerica {
-	private NodoGenerico<T> tope;              
-    private int tamanio;
-    
-    public PilaGenerica() {
-		this.tope= null;
-		tamanio = 0;
-	}
+public class PilaGenerica<T> extends ListaGenerica<T> {
+private ListaEnlazadaGenerica <T> datos = new ListaEnlazadaGenerica <T>();
 	
-	public void apilar(T elem) {
-		NodoGenerico <T> aux = null;
-		aux.setDato(elem);
-		aux.setSiguiente(tope);
-		tope=aux;
-		tamanio ++;
-	}
 	
-	public T desapilar() {
-		if(this.esVacia()) {
-			return null;
-		}
-		T aux = tope.getDato();
-		tope = tope.getSiguiente();
-		tamanio--;
-		return aux;
+	public PilaGenerica() {
+		this.datos = null;
+	}
+	public void apilar(T elemento){
+        this.datos.agregarInicio(elemento);
+	}
+	public T desapilar(){
+		T elemento =  this.datos.elemento(1);
+		this.datos.eliminarEn(1);
+		return elemento;
 	}
 	
 	public T tope(){
-		if(tope == null) {
-			return null;
-		} 
-		else
-			return tope.getDato(); 
-		
+        return this.datos.elemento(1);
 	}
-	public boolean EsVacio() {
-		return (tope == null);
-	}
+	 
+	@Override
+	public boolean esVacia(){
+        return this.datos.esVacia();        
+    }
+	
+	
 	
 	@Override
 	public void comenzar() {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
-	public Object proximo() {
+	public T proximo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
 	public boolean fin() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
-	public Object elemento(int pos) {
+	public T elemento(int pos) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	
+
+	@Override
+	public boolean eliminarEn(int pos) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
+	@Override
+	public int tamanio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	@Override
+	public ListaGenerica<T> clonar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean agregar(Object[] vector) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	@Override
 	public boolean agregarEn(Object elem, int pos) {
@@ -82,43 +101,17 @@ public class PilaGenerica<T> extends ListaGenerica {
 		return false;
 	}
 	@Override
-	public boolean eliminarEn(int pos) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
 	public boolean incluye(Object elem) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-	@Override
-	public boolean esVacia() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public int tamanio() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	@Override
 	public boolean reemplazarEn(Object elem, int pos) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	@Override
-	public ListaGenerica clonar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public boolean agregar(Object[] vector) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-		
-}	
+
+}
 
 	
 
