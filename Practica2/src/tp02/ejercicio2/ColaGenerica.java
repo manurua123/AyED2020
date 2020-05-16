@@ -1,59 +1,25 @@
 package tp02.ejercicio2;
 import tp02.ejercicio2.ListaGenerica;
 public class ColaGenerica <T> extends ListaGenerica<T> {
-	private NodoGenerico<T> inicio;
-	private NodoGenerico<T> actual;
-	private NodoGenerico<T> fin;
-	private int tamanio;
-	
-	public ColaGenerica() {
-		this.inicio = null;
-		this.actual= null;
-		this.fin = null; 
-		this.tamanio = 0;
-	}
-	
-	public void encolar(T elem) {
-		NodoGenerico<T> aux = new NodoGenerico<T>();
-		aux.setDato(elem);
-		if(this.inicio ==null) {
-			this.inicio = aux;
-			this.fin = aux;
-		}
-		else {
-			fin.setSiguiente(aux);
-			fin = aux;
-		}
-		tamanio ++;
-	}
-	public T desencolar() {
-		T aux = inicio.getDato();
-		if(inicio !=null) {
-			inicio = inicio.getSiguiente();
-			tamanio --;
-		}
-		return aux; 
-	}
-	
-	public T tope() {
-		if(inicio == null) {
-			return null;
-		}
-		else
-			return inicio.getDato();
-	}
-	public boolean EsVacio() {
-		if(inicio == null) {
-			return true;
-		}
-		else {
-			return false; 
-		}
-	}
-	
-	
-	
-	
+	private ListaEnlazadaGenerica <T> datos = new ListaEnlazadaGenerica <T>();
+    
+    public boolean esVacia(){
+        return this.datos.esVacia();        
+    }
+    
+    public void encolar(T elemento){
+            this.datos.agregarFinal(elemento);
+    }
+    public T desencolar(){
+            T elemento =  this.datos.elemento(1);
+            this.datos.eliminarEn(1);
+            return elemento;
+    }
+    public T tope(){
+            return this.datos.elemento(1);
+    }
+    
+
 	@Override
 	public void comenzar() {
 		// TODO Auto-generated method stub
@@ -105,11 +71,6 @@ public class ColaGenerica <T> extends ListaGenerica<T> {
 		return false;
 	}
 	@Override
-	public boolean esVacia() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
 	public int tamanio() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -124,11 +85,9 @@ public class ColaGenerica <T> extends ListaGenerica<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public boolean agregar(T[] vector) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+	
+	
 	
 
 }
